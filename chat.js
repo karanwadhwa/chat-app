@@ -37,8 +37,15 @@
       console.log(data);
       if(data.length) {
         for (var i=0; i<data.length; i++){
-          // Display output
-          output.innerHTML += `<p class="chatMessage"><strong>${data[i].name}:</strong> ${data[i].message}</p>`;
+          var msg = document.createElement('p');
+          msg.setAttribute('class', 'chatMessage');
+          var msgName = document.createElement('strong');
+          msgName.textContent = data[i].name;
+          var msgMessage = document.createTextNode(": "+data[i].message);
+          msg.appendChild(msgName);
+          msg.appendChild(msgMessage);
+          output.appendChild(msg);
+          output.insertBefore(msg, output.firstChild);
         }
       }
     });
@@ -63,9 +70,6 @@
           name: name.value,
           message: message.value
         });
-        // Scroll up for latest message
-        var l = document.getElementsByClassName("chatMessage").length;
-        document.getElementsByClassName("chatMessage")[l-1].scrollIntoView();
 
         event.preventDefault();
       }
@@ -77,9 +81,6 @@
         name: name.value,
         message: message.value
       });
-      // Scroll up for latest message
-      var l = document.getElementsByClassName("chatMessage").length;
-      document.getElementsByClassName("chatMessage")[l-1].scrollIntoView();
 
       event.preventDefault();
     });
