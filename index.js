@@ -1,4 +1,3 @@
-
 const client = require('socket.io').listen(4000).sockets;
 const mongo = require('mongodb').MongoClient;
 
@@ -10,7 +9,7 @@ mongo.connect('mongodb://127.0.0.1/chat-app', (err, db) => {
   console.log('MongoDB connected..')
 
   // Socket.io connection
-  client.on('connection', () => {
+  client.on('connection', (socket) => {
     let chat = db.collection('chats');
 
     // Emit status
