@@ -11,15 +11,40 @@ h2{
 }
 
 #chat{
-  max-width: 600px;
   margin: 30px auto;
   border: 1px solid #ddd;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
   border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+@media screen and (max-width: 720px){
+  #chat{
+    width: 100%;
+    margin: 0;
+    align-items: stretch;
+    height: 96.5vh;
+  }
+
+/*   #chat-window{
+    height: 200px !important;
+  } */
+
+  #message{
+    height: 5em;
+  }
+}
+
+@media screen and (min-width: 800px){
+  #chat{
+    max-width: 600px;
+  }
+
 }
 
 #chat-window{
-  height: 400px;
+  height: 500px;
   overflow: auto;
   background: #f9f9f9;
 }
@@ -55,7 +80,7 @@ input, textarea{
   display: block;
   width: 100%;
   background: #fff;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f9f9f9;
   font-family: Nunito;
   font-size: 16px;
   resize: none;

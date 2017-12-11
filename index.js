@@ -1,5 +1,15 @@
 const client = require('socket.io').listen(4000).sockets;
 const mongo = require('mongodb').MongoClient;
+var express = require('express');
+
+// App setup
+var app = express();
+var server = app.listen(3000, function(){
+    console.log('listening for requests on port 3000,');
+});
+
+// Static files
+app.use(express.static('public'));
 
 // Connect to Mongo
 mongo.connect('mongodb://127.0.0.1/chat-app', (err, db) => {
@@ -43,7 +53,7 @@ mongo.connect('mongodb://127.0.0.1/chat-app', (err, db) => {
           // send status object
           sendStatus({
             message: 'Message Sent',
-            clear: false
+            clear: true
           });
         });
       }
