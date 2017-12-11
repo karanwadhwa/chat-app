@@ -29,21 +29,21 @@ mongo.connect('mongodb://127.0.0.1/chat-app', (err, db) => {
     // Handle input events
     socket.on('input', (data) => {
       let name = data.name;
-      let msg = data.msg;
+      let message = data.message;
 
       // Check valid name and msg
-      if(name == '' || msg == ''){
+      if(message == '' || name == ''){
         // send error status
         sendStatus('Please enter name and message');
       } else {
         // Insert message to db
-        chat.insert({name: name, msg: msg}, () => {
+        chat.insert({name: name, message: message}, () => {
           client.emit('output', [data]);
 
           // send status object
           sendStatus({
-            msg: 'Message Sent',
-            clear: true
+            message: 'Message Sent',
+            clear: false
           });
         });
       }

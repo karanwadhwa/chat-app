@@ -47,7 +47,7 @@ label{
   padding: 10px 20px;
 }
 
-input{
+input, textarea{
   padding: 10px 20px;
   box-sizing: border-box;
   background: #eee;
@@ -58,6 +58,11 @@ input{
   border-bottom: 1px solid #eee;
   font-family: Nunito;
   font-size: 16px;
+  resize: none;
+}
+
+*:focus {
+  outline: none;
 }
 
 button{
