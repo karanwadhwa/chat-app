@@ -85,6 +85,15 @@
       event.preventDefault();
     });
 
+    // Handle Chat Clear
+    clear.addEventListener('click', () => {
+      socket.emit('clear');
+    });
+
+    // Clear messages
+    socket.on('cleared', () => {
+      output.textContent = '';
+    });
   }
 
 
