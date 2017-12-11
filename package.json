@@ -1,0 +1,26 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karanwadhwa/chat-app.git"
+  },
+  "author": "Karan Wadhwa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karanwadhwa/chat-app/issues"
+  },
+  "homepage": "https://github.com/karanwadhwa/chat-app#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "pug": "^2.0.0-rc.4"
+  }
+}
