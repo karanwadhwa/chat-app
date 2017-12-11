@@ -10,7 +10,7 @@ var server = http.createServer(app);
 // Static files
 app.use(express.static('public'));
 
-const client = require('socket.io').listen(server).sockets;
+const client = require('socket.io').listen(server);
 
 server.listen(3000);
 
