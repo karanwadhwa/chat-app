@@ -1,15 +1,18 @@
-const client = require('socket.io').listen(4000).sockets;
+
 const mongo = require('mongodb').MongoClient;
 var express = require('express');
+var http = require('http');
 
 // App setup
 var app = express();
-var server = app.listen(3000, function(){
-    console.log('listening for requests on port 3000,');
-});
+var server = http.createServer(app);
 
 // Static files
 app.use(express.static('public'));
+
+const client = require('socket.io').listen(server).sockets;
+
+server.listen(3000);
 
 // Connect to Mongo
 mongo.connect('mongodb://127.0.0.1/chat-app', (err, db) => {
